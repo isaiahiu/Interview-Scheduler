@@ -14,3 +14,13 @@ export function getAppointmentsForDay(state, day) {
 	// if no appointments, return empty array
 	return daySearch;
 }
+
+export function getInterview(state, interview) {
+	if (!interview) {
+		return null;
+	}
+	return {
+		...interview,
+		interviewer: { ...state.interviewers[interview.interviewer] },
+	};
+}
