@@ -1,4 +1,4 @@
-import React from "react";
+import React, { Fragment } from "react";
 import DayListItem from "components/DayListItem";
 import { storiesOf } from "@storybook/react";
 import { action } from "@storybook/addon-actions";
@@ -14,7 +14,7 @@ import Show from "components/Appointment/Show";
 import Confirm from "components/Appointment/Confirm.js";
 import Status from "components/Appointment/Status";
 import Error from "components/Appointment/Error";
-import Form from "componenets/Appointment/Form";
+import Form from "components/Appointment/Form";
 
 storiesOf("Button", module)
 	.addParameters({
@@ -165,7 +165,7 @@ storiesOf("Appointment", module)
 			onClose={action("onClose")}
 		/>
 	))
-	.add("Form Edit", () => (
+	.add("Edit", () => (
 		<Form
 			student='Isaiah'
 			interviewer={interviewer.id}
@@ -174,10 +174,26 @@ storiesOf("Appointment", module)
 			onCancel={action("onCancel")}
 		/>
 	))
-	.add("Form Create", () => (
+	.add("Create", () => (
 		<Form
 			interviewers={interviewers}
 			onSave={action("onSave")}
 			onCancel={action("onCancel")}
 		/>
+	))
+	.add("Appointment Empty", () => (
+		<>
+			<Appointment id={1} time='4PM' />
+			<Appointment time='5PM' />
+		</>
+	))
+	.add("Appointment Booked", () => (
+		<>
+			<Appointment
+				id={1}
+				time='4PM'
+				interview={{ student: "Lydia Miller-Jones", interviewer }}
+			/>
+			<Appointment time='5pm' />
+		</>
 	));
