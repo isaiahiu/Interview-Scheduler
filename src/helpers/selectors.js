@@ -24,3 +24,21 @@ export function getInterview(state, interview) {
 		interviewer: { ...state.interviewers[interview.interviewer] },
 	};
 }
+
+export function getInterviewersForDay(state, day) {
+	//find object in state.days array where name = name
+	const daySearch = state.days.filter(current => {
+		return current.name === day;
+	});
+	// once have days array, iterate and compare id with states.interviewers
+	if (daySearch.length > 0) {
+		const staff = daySearch[0].interviewers.map(id => {
+			return state.interviewers[id];
+		});
+		// if match return value
+		console.log("staff is ", staff);
+		return staff;
+	}
+	// if no appointments, return empty array
+	return daySearch;
+}
