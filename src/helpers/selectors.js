@@ -36,7 +36,6 @@ export function getInterviewersForDay(state, day) {
 			return state.interviewers[id];
 		});
 		// if match return value
-		console.log("staff is ", staff);
 		return staff;
 	}
 	// if no appointments, return empty array
