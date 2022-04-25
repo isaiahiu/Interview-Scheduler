@@ -64,9 +64,7 @@ export default function useApplicationData() {
 
 		const newDay = { ...currentDay, spots: newSpots };
 		const index = state.days.findIndex(index => {
-			if (index.appointments.indexOf(id) > -1) {
-				return true;
-			}
+			return index.appointments.indexOf(id) > -1;
 		});
 		const newDays = [...state.days];
 		newDays[index] = newDay;
