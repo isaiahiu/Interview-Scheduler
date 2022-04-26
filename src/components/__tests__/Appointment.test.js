@@ -11,16 +11,4 @@ describe("Appointment", () => {
 		render(<Appointment />);
   });
   
-  it('', () => {
-    
-  })
-  it('', () => {
-    
-  })
-  it('', () => {
-    
-  })
-  it('', () => {
-    
-  })
 });

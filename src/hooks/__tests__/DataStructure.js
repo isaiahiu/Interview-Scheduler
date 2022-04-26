@@ -1,3 +1,4 @@
+// This file is to be a reference to what the API server sends back
 const days = [
 	{
 		id: 1,
