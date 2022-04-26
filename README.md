@@ -1,6 +1,6 @@
 # Interview Scheduler
 
-Interviewer Scheduler is created as an educational exercise using React, where users can create, edit and delete interview appointments. The focus point will be on the different environments used in testing and development.
+Interviewer Scheduler is created as an educational exercise using React, where users can create, edit and delete interview appointments. The focus points are the different environments used in testing and development.
 
 - Build components in isolation: Start with those at the outermost nodes of the component tree (e.g. buttons, individual list items) and work up the tree to the components that need to use the ones built first.
 - Retrieve data from an API and render the data using components.
@@ -10,13 +10,13 @@ Interviewer Scheduler is created as an educational exercise using React, where u
 ## Final Product
 
 > Add
-> ![]()
+> ![](https://github.com/isaiahiu/Interview-Scheduler/blob/master/docs/appointment-add.gif?raw=true)
 
 > Edit
-> ![]()
+> ![](https://github.com/isaiahiu/Interview-Scheduler/blob/master/docs/appointment-edit.gif?raw=true)
 
 > Delete
-> ![]()
+> ![](https://github.com/isaiahiu/Interview-Scheduler/blob/master/docs/appointment-delete.gif?raw=true)
 
 ## Getting Started
 
