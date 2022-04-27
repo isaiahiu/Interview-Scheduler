@@ -57,7 +57,7 @@ export default function useApplicationData() {
 				id,
 				interview,
 				// update days array with return value of updateSpots
-				days: updateSpots(id, false)
+				days: updateSpots(id, false),
 			});
 		});
 	}
@@ -69,7 +69,7 @@ export default function useApplicationData() {
 				id,
 				interview: null,
 				// update days array with return value of updateSpots
-				days: updateSpots(id, true)
+				days: updateSpots(id, true),
 			});
 		});
 	}

@@ -16,14 +16,6 @@ export default function useVisualMode(initial) {
 		setHistory(prev => [...prev, newMode]);
 	};
 
-	// const back = function () {
-	// 	if (history.length > 1) {
-	// 		const newHistory = history.slice(0, -1);
-	// 		setHistory(newHistory);
-	// 		setMode(newHistory[newHistory.length - 1]);
-	// 	}
-	// };
-
 	const back = function () {
 		if (history.length > 1) {
 			setHistory(prev => {
