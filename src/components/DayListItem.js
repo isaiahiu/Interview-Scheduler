@@ -8,6 +8,7 @@ export default function DayListItem({selected, spots, setDay, name}) {
 		"day-list__item--full": spots === 0,
 	});
 
+	// function here to display correct HTML text based on # of spots 
 	const formatSpots = spots => {
 		if (spots === 0) {
 			return "no spots remaining";
