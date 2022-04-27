@@ -26,10 +26,18 @@ export default function useApplicationData() {
 				};
 			}
 			case SET_INTERVIEW: {
+				const appointment = {
+					...state.appointments[action.id],
+					interview: action.interview,
+				};
+				const appointments = {
+					...state.appointments,
+					[action.id]: appointment,
+				};
 				return {
 					...state,
 					days: action.days,
-					appointments: action.appointments,
+					appointments,
 				};
 			}
 			default: {
@@ -43,39 +51,25 @@ export default function useApplicationData() {
 	const setDay = day => dispatch({ type: SET_DAY, day });
 
 	function bookInterview(id, interview) {
-		const appointment = {
-			...state.appointments[id],
-			interview: { ...interview },
-		};
-		const appointments = {
-			...state.appointments,
-			[id]: appointment,
-		};
-		return axios.put(`/api/appointments/${id}`, appointment).then(res => {
+		return axios.put(`/api/appointments/${id}`, { interview }).then(res => {
 			dispatch({
 				type: SET_INTERVIEW,
+				id,
+				interview,
 				// update days array with return value of updateSpots
-				days: updateSpots(id, false),
-				appointments,
+				days: updateSpots(id, false)
 			});
 		});
 	}
 
 	function cancelInterview(id) {
-		const appointment = {
-			...state.appointments[id],
-			interview: null,
-		};
-		const appointments = {
-			...state.appointments,
-			[id]: appointment,
-		};
-		return axios.delete(`/api/appointments/${id}`, appointment).then(res => {
+		return axios.delete(`/api/appointments/${id}`).then(res => {
 			dispatch({
 				type: SET_INTERVIEW,
+				id,
+				interview: null,
 				// update days array with return value of updateSpots
-				days: updateSpots(id, true),
-				appointments,
+				days: updateSpots(id, true)
 			});
 		});
 	}
