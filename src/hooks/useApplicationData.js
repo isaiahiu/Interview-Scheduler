@@ -30,6 +30,7 @@ export default function useApplicationData() {
 	function reducer(state, action) {
 		const { type, day, days, appointments, interviewers, interview, id } =
 			action;
+
 		switch (type) {
 			case SET_DAY: {
 				return { ...state, day };
@@ -56,28 +57,28 @@ export default function useApplicationData() {
 					[id]: newAppointment,
 				};
 
-				// find day object in days array
+				// find day object in state.days array
 				const currentDay = state.days.find(day => {
 					return state.day === day.name;
 				});
 
-				let newSpots = 0;
-
-				currentDay.appointments.forEach(app => {
+				// find how many spots there are left in currentDay with reduce method
+				const newSpots = currentDay.appointments.reduce((prev, app) => {
 					if (newAppointments[app].interview === null) {
-						newSpots += 1;
+						return prev + 1;
 					}
-				});
+					return prev;
+				}, 0);
 
-				// creating new day object by cloning day, updating spots with newSpots
+				// creating new day object by cloning currentDay, updating spots with newSpots
 				const newDay = { ...currentDay, spots: newSpots };
 
-				// find the index of day object within days array using appointment id
+				// find the index of day object within state.days array using appointment id
 				const index = state.days.findIndex(index => {
 					return index.appointments.indexOf(id) > -1;
 				});
 
-				// create clone of days array
+				// create clone of state.days array
 				const newDays = [...state.days];
 
 				// using the index, update the clone of days with the new day object
