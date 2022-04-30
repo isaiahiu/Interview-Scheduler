@@ -31,7 +31,8 @@ Interviewer Scheduler is created as an educational exercise using React, where u
 ## Technical Specifications
 
 - React
-- Webpack, Babel
+- Webpack
+- Babel
 - Axios
 - Storybook
 - Webpack Dev Server
